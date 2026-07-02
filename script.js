@@ -43,7 +43,6 @@ function play(){
 
 guessButton.addEventListener("click", play);
 
-
 guessInput.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         play();
