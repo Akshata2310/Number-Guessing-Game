@@ -31,7 +31,7 @@ body{
 .num{
   position:absolute;
   color:var(--gold1);
-  opacity:.45; /* more visible per request */
+  opacity:.45;
   font-weight:bold;
   user-select:none;
   transform-origin:center;
@@ -42,7 +42,6 @@ body{
 .c2{ color:var(--gold2); }
 .c3{ color:var(--gold3); }
 
-/* number placement, sizes and fixed random-like rotations (-80deg..80deg) */
 .n1{ left:4%; top:8%; font-size:72px; transform:rotate(-68deg); }
 .n2{ left:30%; top:6%; font-size:28px; transform:rotate(42deg); }
 .n3{ right:6%; top:9%; font-size:68px; transform:rotate(-32deg); }
@@ -64,12 +63,11 @@ body{
 .n19{ left:28%; bottom:26%; font-size:50px; transform:rotate(-80deg); }
 .n20{ left:12%; top:14%; font-size:20px; transform:rotate(55deg); }
 
-/* bubbles (more visible, no animation) */
 .bubble{
   position:absolute;
   border-radius:50%;
   background:var(--gold3);
-  opacity:.22; /* increased visibility */
+  opacity:.22;
   filter:blur(.3px);
 }
 .b1{ left:6%; top:20%; width:18px; height:18px; }
@@ -92,7 +90,7 @@ body{
 .b18{ left:56%; bottom:6%; width:12px; height:12px; }
 
 .container{
-  width:480px; /* made smaller per request */
+  width:480px;
   padding:25px;
   padding-top: 30px;;
   background:white;
@@ -123,10 +121,9 @@ body{
 .star{
   position:absolute;
   color:var(--gold2);
-  z-index:3; /* appear above the logo */
+  z-index:3;
 }
 
-/* only six stars, placed outside the circular logo */
 .s1{ top:-14px; left:6px; font-size:14px; transform:rotate(22deg); }
 .s2{ top:2px; right:-16px; font-size:12px; transform:rotate(-34deg); }
 .s3{ bottom:-14px; left: -8px; font-size:13px; transform:rotate(46deg); }
@@ -134,7 +131,6 @@ body{
 .s5{ top:-6px; left:58px; font-size:10px; transform:rotate(68deg); }
 .s6{ bottom:6px; right:52px; font-size:9px; transform:rotate(-52deg); }
 
-/* twinkle remains for a subtle sparkle on stars */
 .star{ animation:twinkle 2.8s ease-in-out infinite; transform-origin:center; }
 @keyframes twinkle{ 0%,100%{ opacity: 1; transform:scale(1) } 50%{ opacity:.7; transform:scale(.95) } }
 

@@ -66,5 +66,4 @@ guessInput.addEventListener("keydown",e=>{
     }
 });
 
-// focus input on load for better UX
 guessInput.focus();
