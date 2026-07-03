@@ -1,50 +1,70 @@
-const msg1 = document.getElementById("message1");
-const msg2 = document.getElementById("message2");
-const msg3 = document.getElementById("message3");
-const guessInput = document.getElementById("guessInput");
-const guessButton = document.getElementById("guessButton");
+const msg1=document.getElementById("message1");
+const msg2=document.getElementById("message2");
+const msg3=document.getElementById("message3");
 
-const answer = Math.floor(Math.random() * 100) + 1;
-let no_of_guesses = 0;
-const guessed_nos = [];
+const guessInput=document.getElementById("guessInput");
+const guessButton=document.getElementById("guessButton");
+
+const answer=Math.floor(Math.random()*100)+1;
+let attempts=0;
+const guesses=[];
 
 function play(){
-    let user_guess = Number(guessInput.value);
+
+    let guess=Number(guessInput.value);
+
+    if(guess<1||guess>100||isNaN(guess)){
+        alert("Please enter a number between 1 and 100");
+        return;
+    }
+
+    attempts++;
+    guesses.push(guess);
+    msg1.textContent=attempts;
+    msg2.innerHTML="";
+
+    guesses.forEach(num=>{
+        msg2.innerHTML+=`
+        <span class="guess">
+            ${num}
+        </span>
+        `;
+    });
+
+    if(guess<answer){
+        msg3.className="error";
+        msg3.innerHTML="📉 Too Low!";
+    }
+
+    else if(guess>answer){
+        msg3.className="error";
+        msg3.innerHTML="📈 Too High!";
+    }
+
+    else{
+        msg3.className="success";
+        msg3.innerHTML=`🎉 Congratulations! You guessed it in ${attempts} attempts.`;
+        guessButton.disabled=true;
+        guessInput.disabled=true;
+    }
     
-    if(user_guess < 1 || user_guess > 100 || isNaN(user_guess)){
-        alert("Please enter a valid number between 1-100");
-        return; 
+    if(attempts==16){
+        alert("The number of attempts has exceeded 15. Reload to play again.")
+        guessButton.disabled=true;
+        guessInput.disabled=true;
     }
 
-    no_of_guesses++;
-    guessed_nos.push(user_guess);
-
-    msg1.textContent = "No. of Guesses: " + no_of_guesses;
-    msg2.textContent = "Guessed numbers are: " + guessed_nos;
-
-    if(user_guess < answer){
-        msg3.textContent = "Your guess is too low!";
-        msg3.style.color = "#ff4d4d"; 
-    } 
-    else if(user_guess > answer){
-        msg3.textContent = "Your guess is too high!";
-        msg3.style.color = "#ff4d4d";
-    } 
-    else if(user_guess === answer){
-        msg3.textContent = "🎉 Congratulations! You guessed it right!!";
-        msg3.style.color = "#2ed573"; 
-        guessButton.disabled = true; 
-    }
-
-    guessInput.value = "";
+    guessInput.value="";
     guessInput.focus();
+
 }
 
-
-guessButton.addEventListener("click", play);
-
-guessInput.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
+guessButton.addEventListener("click",play);
+guessInput.addEventListener("keydown",e=>{
+    if(e.key==="Enter"){
         play();
     }
 });
+
+// focus input on load for better UX
+guessInput.focus();

@@ -1,21 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Guessing Game</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess The Number</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <main class="container">
-        <p class="mess">I am thinking of a number between 1-100</p>
-        <p class="hint">Can you guess it?</p>
-        <input type="number" id="guessInput" placeholder="NUM">
-        <button id="guessButton">GUESS</button>
-        <p id="message1">No. of Guesses: 0</p>
-        <p id="message2">Guessed numbers are: None</p>
-        <p id="message3" id="feedback"></p>
-    </main>
+  <div class="bg-elements">
+    <!-- decorative floating numbers -->
+    <span class="num c1 n1">12</span>
+    <span class="num c2 n2">23</span>
+    <span class="num c3 n3">45</span>
+    <span class="num c1 n4">67</span>
+    <span class="num c2 n5">89</span>
+    <span class="num c3 n6">100</span>
+    <span class="num c1 n7">34</span>
+    <span class="num c2 n8">56</span>
+    <span class="num c3 n9">78</span>
+    <span class="num c1 n10">91</span>
+    <span class="num c2 n11">14</span>
+    <span class="num c3 n12">29</span>
+    <span class="num c1 n13">38</span>
+    <span class="num c2 n14">47</span>
+    <span class="num c3 n15">52</span>
+    <span class="num c1 n16">63</span>
+    <span class="num c2 n17">71</span>
+    <span class="num c3 n18">84</span>
+    <span class="num c1 n19">96</span>
+    <span class="num c2 n20">5</span>
+
+    <!-- decorative bubbles -->
+    <div class="bubble c1 b1"></div>
+    <div class="bubble c2 b2"></div>
+    <div class="bubble c1 b3"></div>
+    <div class="bubble c3 b4"></div>
+    <div class="bubble c2 b5"></div>
+    <div class="bubble c3 b6"></div>
+    <div class="bubble c1 b7"></div>
+    <div class="bubble c2 b8"></div>
+    <div class="bubble c3 b9"></div>
+    <div class="bubble c3 b10"></div>
+    <div class="bubble c1 b11"></div>
+    <div class="bubble c3 b12"></div>
+    <div class="bubble c2 b13"></div>
+    <div class="bubble c1 b14"></div>
+    <div class="bubble c3 b15"></div>
+    <div class="bubble c3 b16"></div>
+    <div class="bubble c1 b17"></div>
+    <div class="bubble c2 b18"></div>
+  </div>
+
+  <div class="container">
+    <div class="logo">
+      <span class="star s1">✦</span>
+      <span class="star s2">✦</span>
+      <span class="star s3">✦</span>
+      <span class="star s4">✦</span>
+      <span class="star s5">✦</span>
+      <span class="star s6">✦</span>
+      <i class="fa-solid fa-bullseye"></i>
+    </div>
+
+    <h1>Guess the Number</h1>
+    <p class="mess">I am thinking of a number</p>
+    <p class="range">between <span>1</span> and <span>100</span></p>
+
+    <input type="number" id="guessInput" placeholder="Enter your guess...">
+    <button id="guessButton">Guess Number<i class="fa-solid fa-arrow-right"></i></button>
+
+    <div class="attemptBox">
+      <p><i class="fa-solid fa-trophy"></i>Attempts</p>
+      <h2 id="message1">0</h2>
+    </div>
+
+    <h3>Previous Guesses</h3>
+    <div id="message2">None</div>
+    <div id="message3"></div>
+  </div>
 </body>
 </html>
